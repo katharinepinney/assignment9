@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<p id="text"></p>
+	<script language="javascript">
+		
+		songs = [
+			{
+			"title" : "This Year",
+			"artist"  : "Beach Fossils",
+			"genre"	 : "Alternative",
+			"year" : 2017
+			},
+			{
+			"title" : "Warned You",
+			"artist"  : "Good Morning",
+			"genre"	 : "Rock",
+			"year"	: 2014
+			},
+			{
+			"title" : "Ivy",
+			"artist"  : "Frank Ocean",
+			"genre"	 : "R&B",
+			"year"	: 2016
+			},
+			{
+			"title" : "Heartbreak Summer",
+			"artist"  : "RAC",
+			"genre"	 : "Alternative",
+			"year"	: 2017
+			},
+			{
+			"title" : "Sandra's Rose",
+			"artist"  : "Drake",
+			"genre"	 : "R&B",
+			"year"	:  2019
+			},
+			{
+			"title" : "Impossible",
+			"artist"  : "Travis Scott",
+			"genre"	 : "R&B",
+			"year"	: 2015 
+			},
+			{
+			"title" : "Loud Pipes",
+			"artist"  : "Ratatat",
+			"genre"	 : "Alternative",
+			"year"	: 2006
+			},
+			{
+			"title" : "Can't Believe the Way We Float",
+			"artist"  : "James Blake",
+			"genre"	 : "Alternative",
+			"year"	:  2019
+			},
+			{
+			"title" : 'Lucy',
+			"artist"  : 'Still Woozy',
+			"genre"	 : "Indie",
+			"year"	:  2018
+			},
+			{
+			"title" : "Don't Matter to Me",
+			"artist" : "Drake",
+			"genre"	 : "R&B",
+			"year"	:  2019
+			}
+		]
+				
+		strSong = JSON.stringify(songs);
+		document.write(strSong + "<br>" + "<br>");
+		
+		for (i=0;i<songs.length;i++)
+			{
+				document.write(songs[i].title + "<br>" + songs[i].artist + "<br>" + songs[i].genre + "<br>" + songs[i].year + "<br>" + "<br>")
+			}
+		
+		var myObj = JSON.parse(songs);
+		document.getElementById("text").innerHTML = myObj.title;
+		
+		function sort(){
+			genre = document.getElementById("genre").value;
+			for (i=0;i<songs.length;i++){
+				if (songs[i].genre==genre)
+					document.write(songs[i].title + "<br>");
+			}
+		}
+		
+	</script>
+	<form>
+		Genre:
+		<select id="genre">
+			<option>Select a genre</option>
+			<option value="R&B">R&B</option>
+			<option value="Alternative">Alternative</option>
+			<option value="Indie">Indie</option>
+			<option value="Rock">Rock</option>
+		</select>
+		<button onClick="sort()">Submit</button>
+	</form>
+</body>
+</html>
